@@ -39,8 +39,11 @@ function mostrarAccordionBloques(bloques) {
     acordeon.className = "accordion";
     acordeon.id = "accordionBloques";
 
+    // Ordenar bloques por cantidad de integrantes (mayor a menor)
+    const bloquesOrdenados = Object.entries(bloques).sort(([, a], [, b]) => b.length - a.length);
+
     let index = 0;
-    for (const [nombreBloque, diputados] of Object.entries(bloques)) {
+    for (const [nombreBloque, diputados] of bloquesOrdenados) {
         const item = document.createElement("div");
         item.className = "accordion-item";
 
